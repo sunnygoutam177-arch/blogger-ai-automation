@@ -4,8 +4,9 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 4 * * *'
+
 jobs:
-  test:
+  generate:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,7 +19,13 @@ jobs:
       - name: Install requirements
         run: pip install -r requirements.txt
 
-      - name: Test
-        run: |
-          echo "Automation Started"
-          python --version
+      - name: Generate article
+        env:
+          GEMINIAPIKEY: ${{ secrets.GEMINIAPIKEY }}
+        run: python generate_article.py
+
+      - name: Upload article
+        uses: actions/upload-artifact@v4
+        with:
+          name: article
+          path: article.html

@@ -1,16 +1,16 @@
 from google import genai
 import os
-client = genai.Client(api_key=os.environ["GEMINIAPIKEY"])
+
+client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
 prompt = """
 Write a 1500-word SEO-friendly HTML blog article.
 
 Topic: Best Amazon Products
 
-The article should include:
+Include:
 - H1 Title
 - Introduction
-- Product Overview
 - Features
 - Pros
 - Cons

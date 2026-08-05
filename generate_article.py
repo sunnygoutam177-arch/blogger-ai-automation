@@ -8,9 +8,10 @@ Write a 1500-word SEO-friendly HTML blog article.
 
 Topic: Best Amazon Products
 
-Include:
+The article should include:
 - H1 Title
 - Introduction
+- Product Overview
 - Features
 - Pros
 - Cons
@@ -21,7 +22,7 @@ Return only valid HTML.
 """
 
 response = client.models.generate_content(
-    model="gemini-2.5-flash-lite",
+    model="gemini-2.5-pro",
     contents=prompt
 )
 
